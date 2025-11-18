@@ -1,4 +1,4 @@
-# AI-Driven Delay Prediction and Developer Recommendation System
+# AI Project Management Copilot
 
 _(AI Project Management Copilot)_
 
@@ -35,7 +35,7 @@ The system combines **classical ML**, **explainable AI**, and **graph neural net
 
 ---
 
-## 🧱 Tech Stack
+##  Tech Stack
 
 - **Language**: Python 3
 - **ML / DL**:
@@ -63,4 +63,27 @@ If you export the notebook into scripts, your repo might look like:
 │   ├── xgb_delay_model.json      # Saved XGBoost model (optional)
 │   └── gnn_embeddings.pt         # Saved GNN embeddings (optional)
 └── README.md                     # This file
+```
+
+## RUNNING THE PROJECT (GOOGLE COLAB)
+
+1. Upload the Colab notebook.
+2. Install dependencies using the built-in setup cell.
+3. Generate synthetic data (df_tasks and df_devs).
+4. Train XGBoost + SHAP.
+5. Train GraphSAGE developer-task embeddings.
+6. Launch Streamlit via:
+   streamlit run app.py --server.port 8501 --server.address 0.0.0.0 &
+7. Expose dashboard publicly using ngrok.
+
+```text
+Launch Streamlit Inside Colab
+streamlit run app.py --server.port 8501 --server.address 0.0.0.0 &
+```
+```text
+from pyngrok import ngrok
+ngrok.set_auth_token("YOUR_NGROK_AUTH_TOKEN")
+
+public_url = ngrok.connect(8501)
+public_url
 ```
